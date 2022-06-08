@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ProjetoAPI_BrendaRoncon</string>
+    <string name="pesquiseCidade">Pesquise por uma cidade</string>
+    <string name="nome_cidade">Nome da cidade</string>
+    <string name="tempAtual">Temperatura Atual</string>
+    <string name="tempMin">Temperatura Mínima</string>
+    <string name="tempMax">Temperatura Máxima</string>
+
+</resources>
