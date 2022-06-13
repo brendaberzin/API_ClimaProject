@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             tpAtual.setText(tempAtual.toString());
             tpMin.setText(tempMin.toString());
             tpMax.setText(tempMax.toString());
+            nmCidade.setText(nomeCidade.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }

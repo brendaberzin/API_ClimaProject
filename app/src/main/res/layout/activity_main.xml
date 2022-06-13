@@ -20,7 +20,9 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/tempAtual"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tempMaxString"
@@ -30,8 +32,9 @@
         android:textAlignment="center"
         android:textColor="#292727"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="434dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="26dp" />
 
     <TextView
         android:id="@+id/tempAtual"
@@ -43,10 +46,12 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="96sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="545dp" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.882" />
 
     <TextView
         android:id="@+id/tempMin"
@@ -105,44 +110,39 @@
         android:id="@+id/digite_cidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="154dp"
         android:text="Digite a cidade:"
         android:textColor="#000000"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/nomeCidade"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.016"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cidadeInput"
         android:layout_width="175dp"
         android:layout_height="29dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="154dp"
         android:hint="hint"
         android:textColor="#000000"
         android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/nomeCidade"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/digite_cidade"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.758"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.055" />
 
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
         android:onClick="buscarInfos"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tempAtual"
-        app:layout_constraintTop_toBottomOf="@+id/tempAtual" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        tools:layout_editor_absoluteX="167dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
