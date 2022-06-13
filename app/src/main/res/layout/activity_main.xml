@@ -10,13 +10,17 @@
 
     <TextView
         android:id="@+id/nomeCidade"
-        android:layout_width="199dp"
-        android:layout_height="64dp"
+        android:layout_width="221dp"
+        android:layout_height="145dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginEnd="106dp"
+        android:layout_marginBottom="168dp"
         android:text="NomeCidade"
         android:textColor="#000000"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="218dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tempAtual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tempMaxString"
@@ -26,71 +30,119 @@
         android:textAlignment="center"
         android:textColor="#292727"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="215dp"
-        tools:layout_editor_absoluteY="443dp" />
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="434dp" />
 
     <TextView
         android:id="@+id/tempAtual"
         android:layout_width="269dp"
         android:layout_height="133dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginEnd="71dp"
         android:text="270ºC"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="96sp"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="282dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="545dp" />
 
     <TextView
         android:id="@+id/tempMin"
         android:layout_width="81dp"
         android:layout_height="39dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginBottom="6dp"
         android:text="21ºC"
         android:textAlignment="center"
         android:textColor="#292727"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="106dp"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tempAtual"
+        app:layout_constraintEnd_toStartOf="@+id/nomeCidade"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nomeCidade"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tempMinString"
         android:layout_width="79dp"
         android:layout_height="39dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="403dp"
+        android:layout_marginBottom="27dp"
         android:text="Min:"
         android:textAlignment="center"
         android:textColor="#292727"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tempAtual"
+        app:layout_constraintEnd_toStartOf="@+id/tempMin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/digite_cidade" />
 
     <TextView
         android:id="@+id/tempMax"
         android:layout_width="81dp"
         android:layout_height="39dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="3dp"
         android:text="33ºC"
         android:textAlignment="center"
         android:textColor="#292727"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="284dp"
-        tools:layout_editor_absoluteY="443dp" />
+        app:layout_constraintBottom_toTopOf="@+id/tempAtual"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.629"
+        app:layout_constraintStart_toEndOf="@+id/tempMaxString"
+        app:layout_constraintTop_toBottomOf="@+id/nomeCidade"
+        app:layout_constraintVertical_bias="0.482" />
 
     <TextView
         android:id="@+id/digite_cidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="154dp"
         android:text="Digite a cidade:"
         android:textColor="#000000"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="32dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nomeCidade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/cidadeInput"
         android:layout_width="175dp"
         android:layout_height="29dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="154dp"
         android:hint="hint"
         android:textColor="#000000"
         android:textSize="48sp"
-        tools:layout_editor_absoluteX="202dp"
-        tools:layout_editor_absoluteY="35dp" />
+        app:layout_constraintBottom_toTopOf="@+id/nomeCidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/digite_cidade"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:onClick="buscarInfos"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tempAtual"
+        app:layout_constraintTop_toBottomOf="@+id/tempAtual" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

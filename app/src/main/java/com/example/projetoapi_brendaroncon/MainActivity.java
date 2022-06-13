@@ -12,10 +12,12 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<String> {
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     private TextView tpMin;
     private TextView tpMax;
     private TextView nmCidade;
+    private Button button1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,14 +37,14 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         tpMin = findViewById(R.id.tempMin);
         tpMax = findViewById(R.id.tempMax);
         nmCidade = findViewById(R.id.nomeCidade);
+        button1 = findViewById(R.id.button1);
         if (getSupportLoaderManager().getLoader(0) != null){
             getSupportLoaderManager().initLoader(0, null, this);
         }
     }
-
     public void buscarInfos(View view){
         String queryString = cidadeInput.getText().toString();
-        InputMethodManager inputManager = (InputMethodManager);
+        InputMethodManager inputManager = (InputMethodManager)
         getSystemService(Context.INPUT_METHOD_SERVICE);
         if(inputManager != null) {
             inputManager.hideSoftInputFromWindow(view.getWindowToken(),
@@ -69,37 +73,47 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         }
     }
-
     @NonNull
     @Override
     public Loader<String> onCreateLoader(int id, @Nullable Bundle args) {
         String queryString = "";
         if(args != null) {
-            queryString = args.getString("queryString")
+            queryString = args.getString("queryString");
         }
         return new CarregaTemp(this, queryString);
     }
-
     @Override
     public void onLoadFinished(@NonNull Loader<String> loader, String data) {
         try {
             JSONObject jsonObject = new JSONObject(data);
-            JSONArray itensArray = jsonObject.getJSONArray("itens");
+            JSONArray itensArray = jsonObject.getJSONArray("main");
             int i = 0;
-            String tempAtual = null;
-            String tempMin = null;
-            String tempMax = null;
+            Double tempAtual = null;
+            Double tempMin = null;
+            Double tempMax = null;
             String nomeCidade = null;
 
             while( i< itensArray.length() &&
                     (tempAtual == null && tempMin == null && tempMax == null && nomeCidade == null)) {
-                JSONObject  = new JSONObject(data);
+                try {
+                    JSONObject object = itensArray.getJSONObject(i);
+                    tempAtual = object.getDouble("temp");
+                    tempMin = object.getDouble("temp_min");
+                    tempMax = object.getDouble("temp_max");
+                    nomeCidade = object.getString("name");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                i++;
             }
+            tpAtual.setText(tempAtual.toString());
+            tpMin.setText(tempMin.toString());
+            tpMax.setText(tempMax.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
-
     @Override
     public void onLoaderReset(@NonNull Loader<String> loader) {
-
     }
 }
